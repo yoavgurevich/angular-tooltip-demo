@@ -1,4 +1,4 @@
-# Angular6TooltipDemo
+# Angular Tooltip Demo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
 

@@ -1,0 +1,9 @@
+body {
+    margin: 25px !important;
+    color: ghostwhite !important;
+    background: #161616 !important;
+
+    .btn-outline-primary:focus {
+        box-shadow: none !important;
+    }
+}
