@@ -11,12 +11,17 @@ export class AppComponent implements OnInit {
     {
       name: 'Work Pro Tip',
       placement: 'bottom',
-      tooltip: 'Have the wisdom of a 50 year old, the experience of a 40 year old, the focus of a 30 year old!'
+      tooltip: 'Have the wisdom of a 50 year old, the experience of a 40 year old, and the focus of a 30 year old!'
     },
     {
       name: 'Life Pro Tip',
       placement: 'top',
       tooltip: 'Moderation, friends, and lots of patience!'
+    },
+    {
+      name: 'Love Pro Tip',
+      placement: 'right',
+      tooltip: 'Courage, diplomacy, and lots of gifts!'
     }
   ];
 
