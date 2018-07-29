@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { InheritDefinitionFeature } from '../../node_modules/@angular/core/src/render3';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,9 @@ import { Component, HostListener, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   version = 6;
+  containerClass = 'container-fluid';
+  viewportExpansionState = 'Disabled';
+
   buttons = [
     {
       id: this.generateId(),
@@ -58,5 +62,12 @@ export class AppComponent implements OnInit {
     const arr = new Uint8Array(8);
     window.crypto.getRandomValues(arr);
     return arr.join('');
+  }
+
+  toggleViewportExpansion() {
+    this.containerClass = this.containerClass.indexOf('xxl-height') !== -1 ?
+      'container-fluid' : 'container-fluid xxl-height';
+    this.viewportExpansionState = this.viewportExpansionState === 'Disabled' ?
+      'Enabled' : 'Disabled';
   }
 }

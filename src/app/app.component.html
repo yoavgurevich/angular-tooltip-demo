@@ -10,12 +10,26 @@
     </span>
   </h1>
 </div>
-<div class='container-fluid'>
+<div [ngClass]="containerClass">
   <div class='row mb-3'>
-    <div class='col align-self-center'>
-      <h5>Click on either button below to view its associated tooltip...</h5>
+    <div class='col-xs-12 col-md-4 align-self-center'>
+      <h5>
+        Click on any button below to view its associated tooltip...
+        <br />
+        <br />
+        <small>
+          For testing dynamic tooltip position/placement functionality, 
+          please <strong class='btn-link' (click)="toggleViewportExpansion()">click here</strong> to toggle the container height to enable or disable scrolling.
+        </small>
+      </h5>
+    </div>
+    <div class='col-xs-12 col-md-4 offset-md-4 text-center'>
+      <span class='align-middle'>Viewport Expansion: <span [ngClass]="{'badge-info': viewportExpansionState !== 'Disabled', 'badge badge-secondary': viewportExpansionState !== 'Enabled'}">{{ viewportExpansionState }}</span></span>
     </div>
   </div>
   <app-tooltip-btn [buttonData]='buttons'></app-tooltip-btn>
+  <div class='fixed-bottom text-center mb-2'>
+    <small class='text-secondary'><i>Implementation by Yoav Gurevich - July 29th, 2018</i></small>
+  </div>
 </div>
 
