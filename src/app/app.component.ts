@@ -9,22 +9,19 @@ import { InheritDefinitionFeature } from '../../node_modules/@angular/core/src/r
 export class AppComponent implements OnInit {
   version = 6;
   containerClass = 'container-fluid';
-  viewportExpansionState = 'Disabled';
+  isViewportExpanded = false;
 
   buttons = [
     {
-      id: this.generateId(),
       name: 'Work Pro Tip',
       placement: 'bottom',
       tooltip: 'Have the wisdom of a 50 year old, the experience of a 40 year old, and the focus of a 30 year old!'
     },
     {
-      id: this.generateId(),
       name: 'Life Pro Tip',
       tooltip: 'Moderation, friends, and lots of patience!'
     },
     {
-      id: this.generateId(),
       name: 'Love Pro Tip',
       tooltip: 'Courage, diplomacy, and lots of gifts!'
     }
@@ -58,16 +55,9 @@ export class AppComponent implements OnInit {
     }
   }
 
-  generateId() {
-    const arr = new Uint8Array(8);
-    window.crypto.getRandomValues(arr);
-    return arr.join('');
-  }
-
   toggleViewportExpansion() {
     this.containerClass = this.containerClass.indexOf('xxl-height') !== -1 ?
       'container-fluid' : 'container-fluid xxl-height';
-    this.viewportExpansionState = this.viewportExpansionState === 'Disabled' ?
-      'Enabled' : 'Disabled';
+    this.isViewportExpanded = this.containerClass.indexOf('xxl-height') !== -1;
   }
 }

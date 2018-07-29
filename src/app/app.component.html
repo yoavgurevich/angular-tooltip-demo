@@ -24,7 +24,7 @@
       </h5>
     </div>
     <div class='col-xs-12 col-md-4 offset-md-4 text-center'>
-      <span class='align-middle'>Viewport Expansion: <span [ngClass]="{'badge-info': viewportExpansionState !== 'Disabled', 'badge badge-secondary': viewportExpansionState !== 'Enabled'}">{{ viewportExpansionState }}</span></span>
+      <span class='align-middle'>Viewport Expansion: <span [ngClass]="{'badge badge-info': isViewportExpanded, 'badge badge-secondary': !isViewportExpanded}">{{ isViewportExpanded ? 'Active' : 'Inactive' }}</span></span>
     </div>
   </div>
   <app-tooltip-btn [buttonData]='buttons'></app-tooltip-btn>
