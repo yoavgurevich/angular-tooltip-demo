@@ -41,26 +41,16 @@ export class AppComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   handleScroll(event) {
-    const buttonElms = Array.from(document.body.getElementsByTagName('button'));
+    const buttonContainer = document.body.getElementsByClassName('button-container')[0];
 
-    if (buttonElms.length) {
-      buttonElms.forEach(element => {
-        const elmOffsets = element.getBoundingClientRect();
+    if (buttonContainer) {
+      const elmOffsets = buttonContainer.getBoundingClientRect();
 
-        if (elmOffsets.top < 150) {
-          const foundBtn = this.buttons.find(button => button.id === element.id);
-
-          if (foundBtn && foundBtn.placement === 'top') {
-            foundBtn.placement = 'bottom';
-          }
-        } else {
-          const foundBtn = this.buttons.find(button => button.id === element.id);
-
-          if (foundBtn && foundBtn.placement === 'bottom') {
-            foundBtn.placement = 'top';
-          }
-        }
-      });
+      if (elmOffsets.top < 175) {
+        this.buttons.forEach(button => button.placement = 'bottom');
+      } else {
+        this.buttons.forEach(button => button.placement = 'top');
+      }
     }
   }
 
